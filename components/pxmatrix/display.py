@@ -148,11 +148,11 @@ def to_code(config):
     if CONF_MULTIPLEXER_DELAY in config:
         cg.add(var.set_mux_delay(config[CONF_MULTIPLEXER_DELAY]))
 
-    cg.add_library("Wire", "2.0")
-    cg.add_library("Spi", "2.0")
-    cg.add_library("Ticker", "2.0")
-    cg.add_library("Adafruit BusIO", "1.16.1")
+    cg.add_library("Wire", None)
+    cg.add_library("Spi", None)
+    cg.add_library("Ticker", None)
+    cg.add_library("Adafruit BusIO", None)
     # Adafruit GF https://github.com/adafruit/Adafruit-GFX-Library/releases
-    cg.add_library("13", "1.10.12")
+    cg.add_library("Adafruit GFX Library", None)
     # https://github.com/2dom/PxMatrix/blob/master/PxMatrix.h
     cg.add_library("https://github.com/2dom/PxMatrix", None)
