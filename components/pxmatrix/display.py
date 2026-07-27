@@ -155,4 +155,4 @@ def to_code(config):
     # Adafruit GF https://github.com/adafruit/Adafruit-GFX-Library/releases
     cg.add_library("13", "1.10.12")
     # https://github.com/2dom/PxMatrix/blob/master/PxMatrix.h
-    cg.add_library("PxMatrix LED MATRIX library", "1.8.1")
+    cg.add_library("https://github.com/2dom/PxMatrix", None)
