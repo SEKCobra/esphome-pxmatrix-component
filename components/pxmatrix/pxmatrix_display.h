@@ -81,6 +81,8 @@ class PxmatrixDisplay : public display::DisplayBuffer {
 
   HighFrequencyLoopRequester high_freq_;
 
+  Ticker display_ticker;
+
   InternalGPIOPin *pin_latch_{nullptr};
   InternalGPIOPin *pin_a_{nullptr};
   InternalGPIOPin *pin_b_{nullptr};
