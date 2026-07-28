@@ -23,6 +23,8 @@ void PxmatrixDisplay::setup() {
                                   pin_b_->get_pin(), pin_c_->get_pin(), pin_d_->get_pin(), pin_e_->get_pin());
   pxMatrix = this->px_matrix_;
 
+  high_freq_.start();
+
   this->px_matrix_->begin(row_pattern_);
 
   this->px_matrix_->setDriverChip((driver_chips) driver_chips_);
