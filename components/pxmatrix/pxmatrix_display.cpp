@@ -58,6 +58,7 @@ void PxmatrixDisplay::fill(Color color) {
 void PxmatrixDisplay::update() {
   this->do_update_();
   this->px_matrix_->showBuffer();
+  this->px_matrix_->display();
 }
 
 void HOT PxmatrixDisplay::display() {}
