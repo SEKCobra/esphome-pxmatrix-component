@@ -47,6 +47,7 @@ class PxmatrixDisplay : public display::DisplayBuffer {
   float get_setup_priority() const override;
   void setup() override;
   void update() override;
+  void dump_config() override;
   void fill(Color color) override;
 
   void set_pin_latch(InternalGPIOPin *pin_latch);
