@@ -17,7 +17,7 @@ void display_updater() { pxMatrix->display(); }
 float PxmatrixDisplay::get_setup_priority() const { return setup_priority::PROCESSOR; }
 
 void PxmatrixDisplay::setup() {
-  ESP_LOGCONFIG(TAG, "Starting setup...");
+  ESP_LOGD(TAG, "Starting setup");
 
   this->px_matrix_ = new PxMATRIX(width_, height_, pin_latch_->get_pin(), pin_oe_->get_pin(), pin_a_->get_pin(),
                                   pin_b_->get_pin(), pin_c_->get_pin(), pin_d_->get_pin(), pin_e_->get_pin());
@@ -39,6 +39,10 @@ void PxmatrixDisplay::setup() {
   ESP_LOGI(TAG, "Finished Setup");
 
 
+}
+
+void PxmatrixDisplay::dump_config() {
+  ESP_LOGCONFIG(TAG, "pxmatrix");
 }
 
 void HOT PxmatrixDisplay::draw_absolute_pixel_internal(int x, int y, Color color) {
