@@ -14,7 +14,7 @@ namespace pxmatrix_display {
 Ticker display_ticker;
 
 
-void IRAM_ATTR display_updater() { pxMatrix->display(); }
+void HOT IRAM_ATTR display_updater() { pxMatrix->display(); }
 
 void display_update_enable(bool is_enable) {
   if (is_enable)
@@ -68,10 +68,11 @@ void PxmatrixDisplay::fill(Color color) {
 void PxmatrixDisplay::update() {
   this->do_update_();
   this->px_matrix_->showBuffer();
-  this->px_matrix_->display();
 }
 
-void HOT PxmatrixDisplay::display() {}
+void HOT PxmatrixDisplay::display() {
+  this->px_matrix_->display();
+}
 
 void PxmatrixDisplay::set_pin_latch(InternalGPIOPin *pin_latch) { this->pin_latch_ = pin_latch; }
 
