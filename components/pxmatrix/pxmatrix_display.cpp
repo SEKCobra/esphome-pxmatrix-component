@@ -45,7 +45,7 @@ void PxmatrixDisplay::setup() {
   this->px_matrix_->setMuxDelay(mux_delay_, mux_delay_, mux_delay_, mux_delay_, mux_delay_);
   this->px_matrix_->setRotate(rotate_);
   this->px_matrix_->setFlip(flip_);
-  display_update_enable(true);
+  display_update_enable(false);
   ESP_LOGI(TAG, "Finished Setup");
 
 
@@ -68,6 +68,7 @@ void PxmatrixDisplay::fill(Color color) {
 void PxmatrixDisplay::update() {
   this->do_update_();
   this->px_matrix_->showBuffer();
+  this->px_matrix_->display();
 }
 
 void HOT PxmatrixDisplay::display() {}
