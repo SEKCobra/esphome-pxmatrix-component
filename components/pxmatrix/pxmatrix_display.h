@@ -12,6 +12,8 @@
 
 #include <PxMatrix.h>  // NOLINT
 
+#include <Ticker.h>
+
 namespace esphome {
 namespace pxmatrix_display {
 
