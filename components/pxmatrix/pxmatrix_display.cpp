@@ -12,7 +12,14 @@ namespace pxmatrix_display {
   PxMATRIX *pxMatrix;
 
 
-void display_updater() { pxMatrix->display(); }
+void IRAM_ATTR display_updater() { pxMatrix->display(); }
+
+void display_update_enable(bool is_enable) {
+  if (is_enable)
+    display_ticker.attach_ms(4, display_updater);
+  else
+    display_ticker.detach();
+}
 
 float PxmatrixDisplay::get_setup_priority() const { return setup_priority::PROCESSOR; }
 
@@ -36,6 +43,7 @@ void PxmatrixDisplay::setup() {
   this->px_matrix_->setMuxDelay(mux_delay_, mux_delay_, mux_delay_, mux_delay_, mux_delay_);
   this->px_matrix_->setRotate(rotate_);
   this->px_matrix_->setFlip(flip_);
+  display_update_enable(true);
   ESP_LOGI(TAG, "Finished Setup");
 
 
@@ -58,7 +66,6 @@ void PxmatrixDisplay::fill(Color color) {
 void PxmatrixDisplay::update() {
   this->do_update_();
   this->px_matrix_->showBuffer();
-  this->px_matrix_->display();
 }
 
 void HOT PxmatrixDisplay::display() {}
