@@ -45,7 +45,7 @@ void PxmatrixDisplay::setup() {
   this->px_matrix_->setMuxDelay(mux_delay_, mux_delay_, mux_delay_, mux_delay_, mux_delay_);
   this->px_matrix_->setRotate(rotate_);
   this->px_matrix_->setFlip(flip_);
-  display_update_enable(false);
+  display_update_enable(true);
   ESP_LOGI(TAG, "Finished Setup");
 
 
@@ -70,9 +70,7 @@ void PxmatrixDisplay::update() {
   this->px_matrix_->showBuffer();
 }
 
-void HOT PxmatrixDisplay::display() {
-  this->px_matrix_->display();
-}
+void HOT PxmatrixDisplay::display() {}
 
 void PxmatrixDisplay::set_pin_latch(InternalGPIOPin *pin_latch) { this->pin_latch_ = pin_latch; }
 
