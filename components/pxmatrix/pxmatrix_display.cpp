@@ -11,6 +11,8 @@ namespace pxmatrix_display {
 
   PxMATRIX *pxMatrix;
 
+Ticker display_ticker;
+
 
 void IRAM_ATTR display_updater() { pxMatrix->display(); }
 
