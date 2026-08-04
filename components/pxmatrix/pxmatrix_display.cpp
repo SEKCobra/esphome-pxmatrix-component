@@ -56,12 +56,12 @@ void PxmatrixDisplay::dump_config() {
 }
 
 void HOT PxmatrixDisplay::draw_absolute_pixel_internal(int x, int y, Color color) {
-  uint16_t matrix_color = display::ColorUtil::color_to_565(color, display::ColorOrder::COLOR_ORDER_BGR);
+  uint16_t matrix_color = display::ColorUtil::color_to_565(color, display::ColorOrder::COLOR_ORDER_RGB);
   this->px_matrix_->drawPixelRGB565(x, y, matrix_color);
 }
 
 void PxmatrixDisplay::fill(Color color) {
-  uint16_t matrix_color = display::ColorUtil::color_to_565(color,  display::ColorOrder::COLOR_ORDER_BGR);
+  uint16_t matrix_color = display::ColorUtil::color_to_565(color,  display::ColorOrder::COLOR_ORDER_RGB);
   this->px_matrix_->fillScreen(matrix_color);
 }
 
